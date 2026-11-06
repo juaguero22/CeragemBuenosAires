@@ -1,0 +1,146 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+
+/* PORTADA CERAGEM */
+.portada-ceragem {
+    position: relative;
+    background: linear-gradient(110deg, #ffffff 55%, #fafafa 100%);
+    padding: 65px 0 95px;
+    overflow: hidden;
+}
+
+    .portada-ceragem h1 {
+        letter-spacing: -2px;
+    }
+
+.linea-roja {
+    width: 110px;
+    height: 4px;
+    background-color: #d92332;
+}
+
+.imagen-portada {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 22px;
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.10));
+}
+
+.portada-ceragem .btn-danger {
+    background-color: #c8102e;
+    border-color: #c8102e;
+    font-weight: 600;
+}
+
+    .portada-ceragem .btn-danger:hover {
+        background-color: #a80d26;
+        border-color: #a80d26;
+    }
+
+/* CURVA ROJA INFERIOR */
+.portada-ceragem::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    height: 28px;
+    background: #c8102e;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* TARJETAS DE SERVICIOS */
+.servicios-ceragem {
+    background-color: #fafafa;
+}
+
+.tarjeta-servicio {
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
+}
+
+    .tarjeta-servicio:hover {
+        transform: translateY(-5px);
+    }
+
+    .tarjeta-servicio h4 {
+        color: #171717;
+    }
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 768px) {
+    .portada-ceragem {
+        padding: 35px 0 75px;
+        text-align: center;
+    }
+
+        .portada-ceragem h1 {
+            font-size: 3.5rem;
+        }
+
+    .linea-roja {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.icono-servicio {
+    font-size: 42px;
+    color: #c8102e;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* SECCION DE PRODUCTOS */
+.productos-ceragem {
+    background-color: #ffffff;
+}
+
+.tarjeta-producto {
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
+}
+
+    .tarjeta-producto:hover {
+        transform: translateY(-5px);
+    }
+
+    .tarjeta-producto h3 {
+        letter-spacing: 1px;
+    }
+
+

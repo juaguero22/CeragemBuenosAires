@@ -1,0 +1,264 @@
+﻿@model CeragemBuenosAires.Models.Solicitud
+
+@{
+    ViewData["Title"] = "Contáctanos";
+}
+
+<style>
+    .contacto-titulo {
+        color: #b5121b;
+        font-weight: bold;
+    }
+
+    .contacto-info {
+        background: #f8f8f8;
+        border-radius: 14px;
+        padding: 30px;
+        height: 100%;
+    }
+
+        .contacto-info h3 {
+            color: #b5121b;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+    .contacto-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+        align-items: flex-start;
+    }
+
+    .contacto-icono {
+        color: #b5121b;
+        font-size: 25px;
+        min-width: 30px;
+    }
+
+    .contacto-item p {
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+
+    .contacto-item h5 {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .contacto-formulario {
+        border: 1px solid #eee;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.06);
+    }
+
+    .contacto-redes a {
+        margin-right: 10px;
+        margin-bottom: 8px;
+    }
+</style>
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="contacto-titulo">Contáctanos</h1>
+        <p class="text-muted">
+            Estamos para atenderte. Será un gusto brindarte información
+            sobre nuestros servicios, productos y promociones.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Información del centro -->
+        <div class="col-lg-5">
+            <div class="contacto-info">
+
+                <h3>Información del centro</h3>
+
+                <p class="text-muted mb-4">
+                    Visitá nuestro centro y conocé las alternativas
+                    de bienestar y cuidado personal que tenemos para vos.
+                </p>
+
+                <div class="contacto-item">
+                    <div class="contacto-icono">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                        <h5>Ubicación</h5>
+                        <p>
+                            Barrio Los Ángeles,<br />
+                            Buenos Aires de Puntarenas,<br />
+                            Costa Rica.
+                        </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Barrio+Los+Angeles%2C+Buenos+Aires%2C+Puntarenas%2C+Costa+Rica"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-danger">
+                            Cómo llegar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contacto-item">
+                    <div class="contacto-icono">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <div>
+                        <h5>Teléfono</h5>
+                        <p>8681-2402</p>
+                    </div>
+                </div>
+
+                <div class="contacto-item">
+                    <div class="contacto-icono">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h5>WhatsApp</h5>
+                        <p>Escribinos directamente para realizar tus consultas.</p>
+                        <a href="https://wa.me/50686812402"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-success btn-sm mt-2">
+                            Escribir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contacto-item">
+                    <div class="contacto-icono">
+                        <i class="bi bi-facebook"></i>
+                    </div>
+                    <div>
+                        <h5>Facebook</h5>
+                        <p>Seguinos en nuestra página oficial.</p>
+                        <a href="https://www.facebook.com/profile.php?id=61555893890786&locale=es_LA"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-primary btn-sm mt-2">
+                            Visitar Facebook
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="col-lg-7">
+            <div class="card contacto-formulario p-4 p-md-5">
+
+                <h3 class="contacto-titulo mb-2">Enviá tu consulta</h3>
+
+                <p class="text-muted mb-4">
+                    Completá el siguiente formulario y podremos
+                    comunicarnos con vos.
+                </p>
+
+                @if (TempData["Mensaje"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Mensaje"]
+                    </div>
+                }
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+
+                <form asp-controller="Home"
+                      asp-action="Contacto"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label asp-for="NombreCliente" class="form-label fw-bold">
+                            Nombre completo *
+                        </label>
+
+                        <input asp-for="NombreCliente"
+                               class="form-control"
+                               placeholder="Escribe tu nombre"
+                               maxlength="120"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Telefono" class="form-label fw-bold">
+                            Teléfono *
+                        </label>
+
+                        <input asp-for="Telefono"
+                               class="form-control"
+                               placeholder="Ejemplo: 8888-8888"
+                               maxlength="20"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Correo" class="form-label fw-bold">
+                            Correo electrónico (opcional)
+                        </label>
+
+                        <input asp-for="Correo"
+                               type="email"
+                               class="form-control"
+                               placeholder="correo@ejemplo.com"
+                               maxlength="120" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="TipoSolicitud" class="form-label fw-bold">
+                            ¿Sobre qué deseas consultar? *
+                        </label>
+
+                        <select asp-for="TipoSolicitud"
+                                class="form-select"
+                                required>
+
+                            <option value="">Selecciona una opción</option>
+                            <option value="Terapias CERAGEM">Terapias CERAGEM</option>
+                            <option value="Masajes y relajación">Masajes y relajación</option>
+                            <option value="Cuidado facial">Cuidado facial</option>
+                            <option value="Promociones y otras consultas">
+                                Promociones y otras consultas
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Mensaje" class="form-label fw-bold">
+                            Mensaje (opcional)
+                        </label>
+
+                        <textarea asp-for="Mensaje"
+                                  class="form-control"
+                                  rows="4"
+                                  maxlength="500"
+                                  placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit"
+                                class="btn btn-danger btn-lg rounded-pill px-5">
+                            Enviar consulta
+                        </button>
+                    </div>
+
+                    <p class="text-muted small text-center mt-3">
+                        * Campos obligatorios.
+                    </p>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>

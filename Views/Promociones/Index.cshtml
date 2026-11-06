@@ -1,0 +1,73 @@
+﻿@model List<CeragemBuenosAires.Models.Promocion>
+
+@{
+    ViewData["Title"] = "Nuestras promociones";
+}
+
+<section class="container py-5">
+
+    <h1 class="text-center fw-bold mb-3">
+        Nuestras promociones
+    </h1>
+
+    <p class="text-center text-muted mb-5">
+        Descubre nuestros planes y opciones especiales
+        para tu bienestar.
+    </p>
+
+    @if (Model.Any())
+    {
+        <div class="row g-4">
+
+            @foreach (var promocion in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card tarjeta-producto h-100">
+
+                        @if (!string.IsNullOrEmpty(promocion.Imagen))
+                        {
+                            <img src="~/images/@promocion.Imagen"
+                                 class="card-img-top"
+                                 alt="@promocion.Titulo"
+                                 style="height: 220px; object-fit: contain; padding: 15px;" />
+                        }
+
+                        <div class="card-body text-center p-4">
+
+                            <h4 class="fw-bold mb-3">
+                                @promocion.Titulo
+                            </h4>
+
+                            <p>
+                                @promocion.Descripcion
+                            </p>
+
+                            @if (promocion.PrecioPromocional.HasValue)
+                            {
+                                <h4 class="fw-bold text-danger mb-3">
+                                    ₡@promocion.PrecioPromocional.Value.ToString("N0")
+                                </h4>
+                            }
+
+                            <a href="/Home/Contacto"
+                               class="btn btn-danger rounded-pill px-4">
+                                Consultar promoción
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-muted">
+            Actualmente no tenemos promociones disponibles.
+        </p>
+    }
+
+</section>

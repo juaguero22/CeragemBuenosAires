@@ -1,0 +1,15 @@
+﻿# Archivos generados por Visual Studio
+.vs/
+bin/
+obj/
+
+# Configuración privada de producción
+appsettings.Production.json
+appsettings.Development.json
+
+# Credenciales de publicación
+Properties/PublishProfiles/*.pubxml
+
+# Archivos de usuario
+*.user
+*.suo

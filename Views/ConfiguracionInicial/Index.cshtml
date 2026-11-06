@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Configuración inicial";
+}
+
+<div class="container mt-5" style="max-width: 550px;">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-3">
+            Configuración de administradores
+        </h2>
+
+        <p class="text-muted text-center">
+            Registra las cuentas que tendrán acceso al panel administrativo.
+        </p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-controller="ConfiguracionInicial"
+              asp-action="Index"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label class="form-label">Nombre completo</label>
+                <input type="text"
+                       name="nombre"
+                       class="form-control"
+                       maxlength="100"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Correo electrónico</label>
+                <select name="correo" class="form-select" required>
+                    <option value="">Selecciona una cuenta</option>
+                    <option value="chiviss-19-75@hotmail.com">
+                        Silvia Cubillo
+                    </option>
+                    <option value="transmuttadigital@gmail.com">
+                        Juliana Agüero
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password"
+                       name="contrasena"
+                       class="form-control"
+                       minlength="12"
+                       autocomplete="new-password"
+                       required />
+                <small class="text-muted">
+                    Utiliza una contraseña propia y segura de al menos 12 caracteres.
+                </small>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-danger w-100">
+                Registrar administrador
+            </button>
+
+        </form>
+
+    </div>
+</div>

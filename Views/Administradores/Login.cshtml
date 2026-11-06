@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Acceso administrativo";
+}
+
+<section class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card tarjeta-producto p-4 p-md-5">
+
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-danger">CERAGEM</h2>
+                    <h4 class="fw-bold">Panel administrativo</h4>
+                    <p class="text-muted">
+                        Ingresa tus credenciales para continuar.
+                    </p>
+                </div>
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+
+                <form asp-controller="Administradores"
+                      asp-action="Login"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">
+                            Correo electrónico
+                        </label>
+
+                        <input type="email"
+                               name="correo"
+                               class="form-control"
+                               placeholder="correo@ejemplo.com"
+                               maxlength="120"
+                               required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">
+                            Contraseña
+                        </label>
+
+                        <input type="password"
+                               name="contrasena"
+                               class="form-control"
+                               placeholder="Ingresa tu contraseña"
+                               required />
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-danger btn-lg rounded-pill w-100">
+                        Iniciar sesión
+                    </button>
+
+                </form>
+
+                <p class="text-center text-muted small mt-4 mb-0">
+                    Acceso exclusivo para administradores autorizados.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>

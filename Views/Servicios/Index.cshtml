@@ -1,0 +1,77 @@
+﻿@model List<CeragemBuenosAires.Models.Servicio>
+
+@{
+    ViewData["Title"] = "Nuestros servicios";
+}
+
+<section class="container py-5">
+
+    <h1 class="text-center fw-bold mb-3">
+        Nuestros servicios
+    </h1>
+
+    <p class="text-center text-muted mb-5">
+        Conoce las opciones de bienestar y cuidado personal
+        que tenemos disponibles.
+    </p>
+
+    <div class="row g-4">
+
+        @foreach (var servicio in Model)
+        {
+            <div class="col-md-4">
+                <div class="card tarjeta-servicio h-100">
+
+                    @if (!string.IsNullOrEmpty(servicio.Imagen))
+                    {
+                        <img src="~/images/@servicio.Imagen"
+                             class="card-img-top"
+                             alt="@servicio.Nombre" />
+                    }
+
+                    <div class="card-body text-center p-4">
+
+                        <h4 class="fw-bold mb-3">
+                            @servicio.Nombre
+                        </h4>
+
+                        <p>
+                            @servicio.Descripcion
+                        </p>
+
+                        @if (servicio.DuracionMinutos.HasValue)
+                        {
+                            <p>
+                                <strong>Duración:</strong>
+                                @servicio.DuracionMinutos minutos
+                            </p>
+                        }
+
+                        @if (servicio.Precio.HasValue)
+                        {
+                            <p class="fw-bold text-danger">
+                                ₡@servicio.Precio.Value.ToString("N0")
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="text-muted">
+                                Consulte el precio.
+                            </p>
+                        }
+
+                        <a asp-controller="Servicios"
+                           asp-action="Detalle"
+                           asp-route-id="@servicio.IdServicio"
+                           class="btn btn-danger rounded-pill px-4">
+                            Conocer más
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</section>

@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Panel administrativo";
+}
+
+<section class="container py-5">
+
+    <div class="mb-5">
+        <h1 class="fw-bold">Panel administrativo</h1>
+
+        <p class="text-muted">
+            Bienvenido, @User.Identity?.Name.
+            Desde aquí puedes administrar CERAGEM Buenos Aires.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card tarjeta-producto h-100 p-4 text-center">
+                <i class="bi bi-box-seam fs-1 text-danger"></i>
+                <h4 class="fw-bold mt-3">Productos</h4>
+                <p>Administra los productos doTERRA y LEBELAGE.</p>
+                <a href="/Productos" class="btn btn-outline-danger rounded-pill">
+                    Administrar productos
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card tarjeta-producto h-100 p-4 text-center">
+                <i class="bi bi-heart-pulse fs-1 text-danger"></i>
+                <h4 class="fw-bold mt-3">Servicios</h4>
+                <p>Consulta los servicios del centro.</p>
+                <a href="/Servicios" class="btn btn-outline-danger rounded-pill">
+                    Administrar servicios
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card tarjeta-producto h-100 p-4 text-center">
+                <i class="bi bi-tags fs-1 text-danger"></i>
+                <h4 class="fw-bold mt-3">Promociones</h4>
+                <p>Consulta las promociones disponibles.</p>
+                <a href="/Promociones" class="btn btn-outline-danger rounded-pill">
+                    Administrar promociones
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card tarjeta-producto h-100 p-4 text-center">
+                <i class="bi bi-chat-dots fs-1 text-danger"></i>
+                <h4 class="fw-bold mt-3">Solicitudes</h4>
+                <p>Consulta las solicitudes de los clientes.</p>
+                <a href="#" class="btn btn-outline-danger rounded-pill">
+                    Ver solicitudes
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card tarjeta-producto h-100 p-4 text-center">
+                <i class="bi bi-people fs-1 text-danger"></i>
+                <h4 class="fw-bold mt-3">Administradores</h4>
+                <p>Gestiona los accesos administrativos.</p>
+                <a href="#" class="btn btn-outline-danger rounded-pill">
+                    Ver administradores
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-end mt-5">
+
+        <form asp-controller="Administradores"
+              asp-action="Logout"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <button type="submit" class="btn btn-dark rounded-pill px-4">
+                <i class="bi bi-box-arrow-right"></i>
+                Cerrar sesión
+            </button>
+
+        </form>
+
+    </div>
+
+</section>

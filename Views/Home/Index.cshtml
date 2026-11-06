@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!-- PORTADA PRINCIPAL -->
+<section class="portada-ceragem">
+    <div class="container">
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-5">
+                <h2 class="fw-bold mb-3">
+                    Centro de Terapias Alternativas
+                </h2>
+
+                <h1 class="display-1 fw-bold text-danger">
+                    CERAGEM
+                </h1>
+
+                <h2 class="display-4 fw-bold mb-4">
+                    Buenos Aires
+                </h2>
+
+                <div class="linea-roja mb-4"></div>
+
+                <p class="lead mb-4">
+                    Un espacio para el bienestar,
+                    la relajación y el cuidado personal.
+                </p>
+
+                <a href="#servicios"
+                   class="btn btn-danger btn-lg rounded-pill px-4">
+                    Conoce nuestros servicios
+                </a>
+            </div>
+
+            <div class="col-lg-7 text-center">
+                <img src="~/images/v4.jfif"
+                     alt="Familia reunida alrededor de la cama CERAGEM Master V4"
+                     class="img-fluid imagen-portada" />
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- NUESTROS SERVICIOS -->
+<section id="servicios" class="servicios-ceragem py-5">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-3">
+            Nuestros servicios
+        </h2>
+
+        <p class="text-center text-muted mb-5">
+            Descubre nuestras opciones de bienestar y cuidado personal.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- TERAPIAS CERAGEM -->
+            <div class="col-md-4">
+                <div class="card tarjeta-servicio h-100 text-center p-4">
+                    <div class="card-body d-flex flex-column">
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-activity icono-servicio"></i>
+                            Terapias CERAGEM
+                        </h4>
+
+                        <p>
+                            Somos una solución alternativa para su salud, 
+                            equipos biomédicos, Ceragem te ofrece una
+                            technología avanzada, que recuperará tu 
+                            calidad de vida desde la primera sesión.
+                        </p>
+
+                        <div class="mt-auto">
+                            <a asp-controller="Servicios"
+                               asp-action="Detalle"
+                               asp-route-id="1"
+                               class="btn btn-danger rounded-pill px-4">
+                                Conocer más
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASAJES -->
+            <div class="col-md-4">
+                <div class="card tarjeta-servicio h-100 text-center p-4">
+                    <div class="card-body d-flex flex-column">
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-flower1 icono-servicio"></i>
+                            Masajes y relajación
+                        </h4>
+
+                        <p>
+                            Masaje manual relajante, un viaje para tus sentidos;
+                            aromas que calman, manos que sanan.
+                        </p>
+
+                        <div class="mt-auto">
+                            <a asp-controller="Servicios"
+                               asp-action="Detalle"
+                               asp-route-id="2"
+                               class="btn btn-danger rounded-pill px-4">
+                                Conocer más
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRATAMIENTOS FACIALES -->
+            <div class="col-md-4">
+                <div class="card tarjeta-servicio h-100 text-center p-4">
+                    <div class="card-body d-flex flex-column">
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-person-heart icono-servicio"></i>
+                            Tratamientos faciales
+                        </h4>
+
+                        <p>
+                            Tu piel cuenta tu historia,
+                            haz que brille con luz propia.
+                        </p>
+
+                        <div class="mt-auto">
+                            <a asp-controller="Servicios"
+                               asp-action="Detalle"
+                               asp-route-id="3"
+                               class="btn btn-danger rounded-pill px-4">
+                                Conocer más
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- NUESTROS PRODUCTOS -->
+<section id="productos" class="productos-ceragem py-5">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-3">
+            Nuestros productos
+        </h2>
+
+        <p class="text-center text-muted mb-5">
+            Productos seleccionados para el cuidado personal y el bienestar.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- DOTERRA -->
+            <div class="col-md-6">
+                <div class="card tarjeta-producto h-100">
+                    <div class="card-body text-center p-5">
+
+                        <h3 class="fw-bold text-danger mb-3">
+                            doTERRA
+                        </h3>
+
+                        <p class="mb-4">
+                            Aceites esenciales y productos para
+                            aromatización y cuidado personal.
+                        </p>
+
+                        <a asp-controller="Productos"
+                           asp-action="Index"
+                           class="btn btn-outline-danger rounded-pill px-4">
+                            Ver productos
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEBELAGE -->
+            <div class="col-md-6">
+                <div class="card tarjeta-producto h-100">
+                    <div class="card-body text-center p-5">
+
+                        <h3 class="fw-bold text-danger mb-3">
+                            LEBELAGE
+                        </h3>
+
+                        <p class="mb-4">
+                            Productos cosméticos para el cuidado
+                            y la belleza facial.
+                        </p>
+
+                        <a asp-controller="Productos"
+                           asp-action="Index"
+                           class="btn btn-outline-danger rounded-pill px-4">
+                            Ver productos
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

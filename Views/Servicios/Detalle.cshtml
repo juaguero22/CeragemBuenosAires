@@ -1,0 +1,504 @@
+﻿@model CeragemBuenosAires.Models.Servicio
+
+
+@{
+    ViewData["Title"] = Model.Nombre;
+
+    bool esCeragem = Model.IdServicio == 1;
+    bool esMasaje = Model.IdServicio == 2;
+    bool esFacial = Model.IdServicio == 3;
+
+    string imagenPrincipal = "";
+
+    if (esCeragem)
+    {
+        imagenPrincipal = "equipos/ceragem-imagen-principal.webp";
+    }
+    else if (esMasaje)
+    {
+        imagenPrincipal = "masajes/masaje-imagen-principal.webp";
+    }
+    else if (esFacial)
+    {
+        imagenPrincipal = "faciales/facial-imagen-principal.jfif";
+    }
+}
+
+
+<section class="container py-5">
+
+    <!-- ENCABEZADO DEL SERVICIO -->
+    <div class="mb-4">
+        <a asp-controller="Servicios"
+           asp-action="Index"
+           class="text-danger text-decoration-none">
+            <i class="bi bi-arrow-left"></i> Volver a servicios
+        </a>
+    </div>
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+            @if (!string.IsNullOrEmpty(imagenPrincipal))
+            {
+                <img src="~/images/@imagenPrincipal"
+                     alt="@Model.Nombre"
+                     class="img-fluid rounded-4 shadow"
+                     style="width:100%; max-height:450px; object-fit:cover;" />
+            }
+        </div>
+
+        <div class="col-lg-6">
+
+            <span class="text-danger fw-bold">
+                CENTRO DE TERAPIAS ALTERNATIVAS
+            </span>
+
+            <h1 class="fw-bold mt-3 mb-4">
+                @Model.Nombre
+            </h1>
+
+            <p class="text-muted fs-5">
+                @Model.Descripcion
+            </p>
+
+            @if (Model.DuracionMinutos.HasValue)
+            {
+                <p>
+                    <strong>Duración:</strong>
+                    @Model.DuracionMinutos minutos
+                </p>
+            }
+
+            @if (Model.Precio.HasValue)
+            {
+                <h4 class="text-danger fw-bold">
+                    ₡@Model.Precio.Value.ToString("N0")
+                </h4>
+            }
+            else
+            {
+                <p class="text-muted">
+                    Consulte el precio.
+                </p>
+            }
+
+            <a asp-controller="Home"
+               asp-action="Contacto"
+               class="btn btn-danger rounded-pill px-4 py-2 mt-3">
+                Consultar por WhatsApp
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- SERVICIO 1: TERAPIAS CERAGEM           -->
+    <!-- ====================================== -->
+    @if (esCeragem)
+    {
+        <section class="mt-5">
+
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestros equipos y accesorios</h2>
+
+                <p class="text-muted">
+                    Conoce los equipos disponibles en nuestro centro
+                    y su función dentro de las sesiones.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/master-v4.jfif"
+                             class="card-img-top"
+                             alt="CERAGEM Master V4" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">CERAGEM Master V4</h5>
+                            <p>
+                                Equipo principal utilizado en las sesiones de terapia CERAGEM,
+                                es una camilla de masaje térmico y terapia espinal, que ofrece
+                                una tecnología inteligente que se adapta a la forma de tu espalda
+                                para proporcionar un masaje completamente personalizado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/ceramix-s1.jfif"
+                             class="card-img-top"
+                             alt="CERAMIX S1" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">CERAMIX S1</h5>
+                            <p>
+                                Manta térmica complementaria utilizada en las sesiones,
+                                compuesta de piedras ceramix que ayuda a desinflamar y aliviar
+                                dolores musculares, mediante terapia de calor infrarrojo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/cinturon-ceramix-B1.jpg"
+                             class="card-img-top"
+                             alt="Cinturón CERAMIX B1" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">Cinturón CERAMIX B1</h5>
+                            <p>
+                                Accesorio térmico para las sesiones, es un cinturón térmico
+                                ajustable compuesto de esferas ceratonic, ideal para
+                                concentrar el calor en el abdomen y la cintura ayudando
+                                a desinflamar y mejora la circulación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/ceralegs.jpg"
+                             class="card-img-top"
+                             alt="CeraLegs" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">CeraLegs</h5>
+                            <p>
+                                Es un dispositivo terapéutico y ergonómico deseñado
+                                especificamente para el cuidado y bienestar de los pies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/healax.jfif"
+                             class="card-img-top"
+                             alt="HealaX" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">HealaX</h5>
+                            <p>
+                                Es un dispositivo portátil de bienestar diseñado para
+                                proporcionar alivio muscular y tensiones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/cojin-ceracushion.png"
+                             class="card-img-top"
+                             alt="Cojín CeraCushion" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">Cojín CeraCushion</h5>
+                            <p>
+                                Accesorio térmico tipo cojín diseñado para
+                                la salud de la zona abdominal y pélvica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/sauna-pies.jpg"
+                             class="card-img-top"
+                             alt="Sauna de pies" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">Sauna de pies</h5>
+                            <p>
+                                Es un dispositivo diseñado para la desintoxicación,
+                                el alivio del dolor y la relajación profunda a través
+                                de calor infrarrojo y piedra terapéuticas..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="~/images/equipos/lampara-infrarroja.jpg"
+                             class="card-img-top"
+                             alt="Lámpara infrarroja" />
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">Lámpara infrarroja</h5>
+                            <p>
+                                Su función principal es aplicar calor superficial
+                                para aliviar el dolor muscular, mejorar la circulación
+                                sanguinea y acelerar la recuperación de tejidos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+                <a asp-controller="Home"
+                   asp-action="Contacto"
+                   class="btn btn-danger rounded-pill px-5 py-3">
+                    Consultar por WhatsApp
+                </a>
+            </div>
+
+        </section>
+    }
+
+
+    <!-- ====================================== -->
+    <!-- SERVICIO 2: MASAJES Y AROMATERAPIA     -->
+    <!-- ====================================== -->
+    @if (esMasaje)
+    {
+        <section class="mt-5">
+
+            <div class="text-center mb-5">
+
+                <span class="text-danger fw-bold">
+                    BIENESTAR Y RELAJACIÓN
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    Masajes manuales con aromaterapia
+                </h2>
+
+                <p class="text-muted mx-auto" style="max-width:750px;">
+                    Un espacio dedicado a la relajación y al cuidado personal,
+                    mediante técnicas de masaje manual acompañadas de aromas
+                    agradables que complementan la experiencia.
+                </p>
+
+            </div>
+
+            <div class="row align-items-center g-5 mb-5">
+
+                <div class="col-lg-6">
+                    <img src="~/images/masajes/masaje-manual.jpg"
+                         alt="Masaje manual"
+                         class="img-fluid rounded-4 shadow"
+                         style="width:100%; max-height:420px; object-fit:cover;" />
+                </div>
+
+                <div class="col-lg-6">
+
+                    <h3 class="fw-bold mb-3">
+                        ¿En qué consiste el masaje?
+                    </h3>
+
+                    <p>
+                        Es un servicio de cuidado personal que utiliza
+                        técnicas manuales aplicadas sobre diferentes zonas
+                        del cuerpo, mediante movimientos suaves y controlados.
+                    </p>
+
+                    <p>
+                        La sesión se desarrolla en un ambiente tranquilo,
+                        buscando ofrecer un momento para desconectarse
+                        de las actividades cotidianas y disfrutar de una
+                        experiencia de relajación.
+                    </p>
+
+                    <h5 class="fw-bold mt-4">
+                        Una experiencia acompañada de aromaterapia
+                    </h5>
+
+                    <p>
+                        Se incorporan aromas de aceites esenciales
+                        seleccionados para complementar el ambiente
+                        y hacer más agradable la experiencia.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <img src="~/images/masajes/masaje-aromaterapia.jfif"
+                             alt="Masaje con aromaterapia"
+                             class="card-img-top"
+                             style="height:300px; object-fit:cover;" />
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-bold">
+                                Aromaterapia
+                            </h5>
+
+                            <p class="text-muted">
+                                Los aceites esenciales aportan aromas
+                                que acompañan el ambiente durante la sesión.
+                                Su selección depende de las preferencias
+                                y características del servicio.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <img src="~/images/masajes/masaje-relajante.jfif"
+                             alt="Masaje relajante"
+                             class="card-img-top"
+                             style="height:300px; object-fit:cover;" />
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-bold">
+                                Un momento para ti
+                            </h5>
+
+                            <p class="text-muted">
+                                Un espacio pensado para disfrutar de
+                                atención personalizada, tranquilidad
+                                y cuidado personal en un ambiente acogedor.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center py-4">
+
+                <h3 class="fw-bold mb-3">
+                    Regálate un momento de relajación
+                </h3>
+
+                <p class="text-muted mb-4">
+                    Contáctanos para conocer los detalles del servicio,
+                    precios y disponibilidad.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="Contacto"
+                   class="btn btn-danger rounded-pill px-5 py-3">
+                    Consultar por WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+    }
+
+
+    <!-- ====================================== -->
+    <!-- SERVICIO 3: TRATAMIENTOS FACIALES      -->
+    <!-- ====================================== -->
+    @if (esFacial)
+    {
+        <section class="mt-5">
+
+            <div class="text-center mb-5">
+
+                <span class="text-danger fw-bold">
+                    CUIDADO PERSONAL Y BELLEZA
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    Tratamientos faciales
+                </h2>
+
+                <p class="text-muted mx-auto" style="max-width:750px;">
+                    Un espacio dedicado al cuidado facial, con opciones
+                    de limpieza y atención personalizadas.
+                </p>
+
+            </div>
+
+            <div class="row g-4 mb-5">
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <img src="~/images/faciales/limpieza-facial.png"
+                             alt="Limpieza facial"
+                             class="card-img-top"
+                             style="height:320px; object-fit:cover;" />
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-bold">
+                                Limpieza facial
+                            </h5>
+
+                            <p class="text-muted">
+                                Servicio enfocado en el cuidado y limpieza
+                                de la piel del rostro, como parte de una
+                                rutina de cuidado personal.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <img src="~/images/faciales/tratamiento-facial.jfif"
+                             alt="Tratamiento facial"
+                             class="card-img-top"
+                             style="height:320px; object-fit:cover;" />
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-bold">
+                                Cuidado y atención facial
+                            </h5>
+
+                            <p class="text-muted">
+                                Una experiencia de cuidado personal
+                                orientada a atender las necesidades
+                                de la piel y disfrutar de un momento
+                                dedicado al bienestar.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center py-4">
+
+                <h3 class="fw-bold mb-3">
+                    Conoce nuestras opciones de cuidado facial
+                </h3>
+
+                <p class="text-muted mb-4">
+                    Escríbenos para conocer los tratamientos,
+                    sus características y precios.
+                </p>
+
+                <a asp-controller="Home"
+                   asp-action="Contacto"
+                   class="btn btn-danger rounded-pill px-5 py-3">
+                    Consultar por WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+    }
+
+</section>

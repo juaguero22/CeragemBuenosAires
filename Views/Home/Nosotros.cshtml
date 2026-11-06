@@ -1,0 +1,265 @@
+﻿@{
+    ViewData["Title"] = "Nosotros";
+}
+
+<style>
+    .nosotros {
+        color: #333;
+    }
+
+    .nosotros-hero {
+        background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.15)), url('/images/v4.jfif') center/cover;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        padding: 45px;
+        color: white;
+        margin-bottom: 45px;
+    }
+
+        .nosotros-hero h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 38px;
+        }
+
+        .nosotros-hero p {
+            max-width: 600px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+    .nosotros h2 {
+        color: #b5121b;
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
+
+    .nosotros p {
+        line-height: 1.8;
+    }
+
+    .nosotros-seccion {
+        padding: 25px 10px;
+        margin-bottom: 25px;
+    }
+
+    .nosotros-tarjeta {
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+        padding: 25px;
+        height: 100%;
+        box-shadow: 0 3px 10px rgba(0,0,0,.05);
+    }
+
+        .nosotros-tarjeta h4 {
+            color: #b5121b;
+            font-weight: bold;
+        }
+
+    .nosotros-icono {
+        font-size: 32px;
+        color: #b5121b;
+        margin-bottom: 12px;
+    }
+
+    .nosotros-cta {
+        background: #b5121b;
+        color: white;
+        padding: 35px 20px;
+        border-radius: 12px;
+        text-align: center;
+        margin: 35px 0;
+    }
+
+        .nosotros-cta h2 {
+            color: white;
+        }
+
+        .nosotros-cta .btn {
+            background: white;
+            color: #b5121b;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: bold;
+        }
+</style>
+
+<div class="container nosotros mt-4">
+
+    <section class="nosotros-hero">
+        <div>
+            <h1>Conocé nuestro centro</h1>
+            <p>
+                En el Centro de Terapias Alternativas CERAGEM Buenos Aires
+                ofrecemos un espacio dedicado al bienestar, la relajación
+                y el cuidado personal.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="nosotros-seccion text-center">
+        <h2>¿Quiénes somos?</h2>
+
+        <p class="mx-auto" style="max-width: 900px;">
+            En el Centro de Terapias Alternativas CERAGEM Buenos Aires
+            encontrarás un espacio dedicado al bienestar, la relajación
+            y el cuidado personal.
+        </p>
+
+        <p class="mx-auto" style="max-width: 900px;">
+            Estamos ubicados en Barrio Los Ángeles, Buenos Aires de
+            Puntarenas, y ofrecemos diferentes alternativas para quienes
+            desean dedicar tiempo a su bienestar. Contamos con sesiones
+            de terapia CERAGEM, masajes manuales relajantes con
+            aromaterapia y tratamientos faciales.
+        </p>
+
+        <p class="mx-auto" style="max-width: 900px;">
+            Además, ponemos a tu disposición productos de las marcas
+            doTERRA y LEBELAGE para complementar tus rutinas de cuidado
+            personal.
+        </p>
+
+        <p class="mx-auto" style="max-width: 900px;">
+            Nuestro propósito es brindarte una atención cercana, un
+            ambiente agradable y diferentes opciones para que disfrutés
+            de un momento dedicado a vos.
+        </p>
+    </section>
+
+
+    <section class="nosotros-seccion">
+        <h2 class="text-center">¿Qué ofrecemos?</h2>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">♡</div>
+                    <h4>Terapias CERAGEM</h4>
+                    <p>
+                        Sesiones que utilizan el equipo CERAGEM Master V4
+                        y complementos térmicos como parte de una experiencia
+                        enfocada en el bienestar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">✿</div>
+                    <h4>Masajes y relajación</h4>
+                    <p>
+                        Masajes manuales relajantes acompañados de
+                        aromaterapia con aceites esenciales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">✧</div>
+                    <h4>Cuidado facial</h4>
+                    <p>
+                        Tratamientos faciales y productos para complementar
+                        las rutinas de limpieza y cuidado de la piel.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="nosotros-seccion text-center">
+        <h2>Nuestros productos</h2>
+        <p class="mx-auto" style="max-width: 850px;">
+            También contamos con productos de las marcas doTERRA y
+            LEBELAGE, con alternativas de aceites esenciales y productos
+            para el cuidado facial.
+        </p>
+    </section>
+
+
+    <section class="nosotros-seccion">
+        <h2 class="text-center">Encontranos y conectá con nosotros</h2>
+
+        <p class="text-center mb-4">
+            Estamos para atenderte y brindarte información sobre nuestros
+            servicios, productos y promociones.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h4>Ubicación</h4>
+                    <p>
+                        Barrio Los Ángeles,<br />
+                        Buenos Aires de Puntarenas,<br />
+                        Costa Rica.
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Barrio+Los+Angeles%2C+Buenos+Aires%2C+Puntarenas%2C+Costa+Rica"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-danger">
+                        <i class="bi bi-geo-alt"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <h4>WhatsApp</h4>
+                    <p>8681-2402</p>
+                    <a href="https://wa.me/50686812402"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-success">
+                        Escribinos
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="nosotros-tarjeta text-center">
+                    <div class="nosotros-icono">
+                        <i class="bi bi-facebook"></i>
+                    </div>
+                    <h4>Facebook</h4>
+                    <p>Seguinos en nuestra página oficial.</p>
+                    <a href="https://www.facebook.com/profile.php?id=61555893890786&locale=es_LA"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-primary">
+                        Visitar Facebook
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="nosotros-cta">
+        <h2>Estamos para atenderte</h2>
+        <p>
+            Será un gusto brindarte información sobre nuestros servicios,
+            productos y promociones.
+        </p>
+        <a asp-controller="Home"
+           asp-action="Contacto"
+           class="btn">
+            Contactanos
+        </a>
+    </section>
+
+</div>
